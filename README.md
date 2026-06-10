@@ -1,107 +1,110 @@
 <h3 align="center">🛠️ privacy-pixel</h3>
 
 <div align="center">
-  <a href="https://github.com/axentx/privacy-pixel"><img src="https://img.shields.io/github/stars/axentx/privacy-pixel?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/axentx/privacy-pixel/blob/main/LICENSE"><img src="https://img.shields.io/github/license/axentx/privacy-pixel" alt="License"></a>
-  <a href="https://github.com/axentx/privacy-pixel"><img src="https://img.shields.io/github/repo-size/axentx/privacy-pixel" alt="Repo size"></a>
-  <a href="https://github.com/axentx/privacy-pixel/actions"><img src="https://img.shields.io/github/actions/workflow/status/axentx/privacy-pixel/ci.yml?branch=main" alt="CI"></a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+  </a>
+  <a href="https://python.org">
+    <img src="https://img.shields.io/badge/Language-Python-blue" alt="Language: Python">
+  </a>
+  <a href="https://github.com/axentx/privacy-pixel/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/axentx/privacy-pixel/test.yml" alt="Build Status">
+  </a>
+  <a href="https://github.com/axentx/privacy-pixel/stargazers">
+    <img src="https://img.shields.io/github/stars/axentx/privacy-pixel" alt="Stars">
+  </a>
 </div>
 
 ---
 
 # 🚀 privacy-pixel
 
-**Power developers with 100 % local image‑processing.**  
-privacy‑pixel is a zero‑knowledge, client‑side image‑editing library that guarantees data sovereignty by never sending images to a server.
+**Protect user privacy with client-side image processing.**
 
-## Why privacy‑pixel?
+Privacy Pixel is an open-source tool that ensures all image processing happens locally in the user's browser, guaranteeing data sovereignty and zero-knowledge architecture.
 
-- **Zero‑knowledge architecture** – all edits are performed client‑side with no backend storage or telemetry.  
-- **100 % local processing** – no image ever leaves the user’s browser, guaranteeing data sovereignty.  
-- **Open‑source transparency** – the entire codebase is publicly available and auditable.  
-- **Fast, lightweight** – built on WebAssembly for sub‑millisecond processing on modern browsers.  
-- **Easy integration** – expose a single JavaScript API that works in any web framework.  
-- **Built for privacy‑first applications** – perfect for photo editors, medical imaging tools, and any scenario where user data must never leave the device.
+## Why privacy-pixel?
+
+- **100% local processing**: No image ever leaves the user’s browser, ensuring data sovereignty.
+- **Zero-knowledge architecture**: All edits are performed client-side with no backend storage or telemetry.
+- **Open-source transparency**: Fully transparent and auditable codebase.
+- **Built for developers**: Easy to integrate into existing web applications.
+- **Privacy by design**: Designed with a focus on user privacy and data protection.
 
 ## Feature Overview
 
-| Feature | Description |
-|---------|-------------|
-| **Client‑side editing** | All transformations run in the browser using WebAssembly. |
-| **Zero‑knowledge** | No telemetry, no backend, no data leakage. |
-| **Modular API** | Plug‑and‑play functions for cropping, resizing, filtering, etc. |
-| **TypeScript typings** | Full type safety for JavaScript/TypeScript projects. |
-| **Extensible** | Add custom filters via a simple plugin interface. |
-| **Performance** | Benchmarked to be 2× faster than comparable JS libraries. |
+| Feature                     | Description                                                                                     |
+|-----------------------------|-------------------------------------------------------------------------------------------------|
+| Client-side processing      | All image processing happens in the user's browser.                                             |
+| Zero-knowledge architecture | No data is stored or transmitted to any backend.                                                |
+| Open-source                 | Fully transparent and auditable codebase.                                                      |
+| Easy integration            | Simple to integrate into existing web applications.                                             |
+| Privacy-focused             | Designed with a focus on user privacy and data protection.                                     |
 
 ## Tech Stack
 
-- **Python** (for packaging and CI tooling)  
-- **Rust** (WebAssembly backend)  
-- **TypeScript** (public API)  
-- **PyPI** (distribution)  
-- **GitHub Actions** (CI/CD)
+- Python
+- JavaScript
+- HTML/CSS
+- WebAssembly (for performance-critical operations)
 
 ## Project Structure
 
 ```
-privacy-pixel/
-├── business/          # Business logic and configuration
-├── src/               # Rust + TypeScript source code
-├── tests/             # Unit and integration tests
-├── pyproject.toml     # Python packaging & build config
-└── README.md          # This file
+business/       # Business logic and core functionality
+src/            # Source code for the main application
+tests/          # Test cases and test suites
+README.md       # Project documentation
+pyproject.toml  # Project configuration
+requirements.txt # Project dependencies
 ```
 
 ## Getting Started
 
-```bash
-# Install the package from PyPI
-pip install privacy-pixel
+### Prerequisites
 
-# Or install from source
+- Python 3.8+
+- Node.js 14+
+
+### Installation
+
+```bash
 git clone https://github.com/axentx/privacy-pixel.git
 cd privacy-pixel
-pip install .
+pip install -r requirements.txt
+npm install
 ```
 
-### Usage Example (JavaScript)
+### Running the Application
 
-```js
-import { cropImage, resizeImage } from 'privacy-pixel';
+```bash
+python src/main.py
+```
 
-const img = await fetch('image.png').then(r => r.blob());
-const cropped = await cropImage(img, { x: 10, y: 10, width: 200, height: 200 });
-const resized = await resizeImage(cropped, { width: 100, height: 100 });
+### Running Tests
 
-document.body.appendChild(await resized.toImageElement());
+```bash
+python -m pytest tests/
 ```
 
 ## Deploy
 
-The library is published to PyPI and npm. To publish a new release:
-
 ```bash
-# Build the Rust WebAssembly module
-cargo build --release --target wasm32-unknown-unknown
+# Build the application
+npm run build
 
-# Package the Python wheel
-python -m build
-
-# Publish to PyPI
-twine upload dist/*
-
-# Publish to npm (if you maintain a JS wrapper)
-npm publish
+# Deploy to your preferred hosting service
+# Example for Vercel
+vercel deploy
 ```
 
 ## Status
 
-Active development – last commit `5023de0` (2026‑06‑09) added the final README generation logic.
+Latest commit: `5df0a04 axentx-dev-bot: code-build cycle 20260609-004609-privacy-`
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
 
