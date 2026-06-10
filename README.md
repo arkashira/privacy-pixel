@@ -1,111 +1,70 @@
-<h3 align="center">🛠️ privacy-pixel</h3>
-
+# 🛠️ privacy-pixel
 <div align="center">
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
-  </a>
-  <a href="https://python.org">
-    <img src="https://img.shields.io/badge/Language-Python-blue" alt="Language: Python">
-  </a>
-  <a href="https://github.com/axentx/privacy-pixel/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/axentx/privacy-pixel/test.yml" alt="Build Status">
-  </a>
-  <a href="https://github.com/axentx/privacy-pixel/stargazers">
-    <img src="https://img.shields.io/github/stars/axentx/privacy-pixel" alt="Stars">
-  </a>
+  <a href="https://shields.io/"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
+  <a href="https://shields.io/"><img src="https://img.shields.io/badge/language-Python-yellow" alt="Language"></a>
+  <a href="https://shields.io/"><img src="https://img.shields.io/badge/build-PyProject.toml-green" alt="Build"></a>
+  <a href="https://shields.io/"><img src="https://img.shields.io/badge/stars-0-red" alt="Stars"></a>
 </div>
 
 ---
 
 # 🚀 privacy-pixel
-
-**Protect user privacy with client-side image processing.**
-
-Privacy Pixel is an open-source tool that ensures all image processing happens locally in the user's browser, guaranteeing data sovereignty and zero-knowledge architecture.
+**Protect user data with 100% local processing and zero-knowledge architecture.** A privacy-focused pixel that guarantees data sovereignty and transparency.
 
 ## Why privacy-pixel?
-
-- **100% local processing**: No image ever leaves the user’s browser, ensuring data sovereignty.
-- **Zero-knowledge architecture**: All edits are performed client-side with no backend storage or telemetry.
-- **Open-source transparency**: Fully transparent and auditable codebase.
-- **Built for developers**: Easy to integrate into existing web applications.
-- **Privacy by design**: Designed with a focus on user privacy and data protection.
+- **100% local processing**: no image ever leaves the user’s browser, guaranteeing data sovereignty.
+- **Zero-knowledge architecture**: all edits are performed client-side with no backend storage or telemetry.
+- **Open-source transparency**: all code is open-source and transparent.
 
 ## Feature Overview
-
-| Feature                     | Description                                                                                     |
-|-----------------------------|-------------------------------------------------------------------------------------------------|
-| Client-side processing      | All image processing happens in the user's browser.                                             |
-| Zero-knowledge architecture | No data is stored or transmitted to any backend.                                                |
-| Open-source                 | Fully transparent and auditable codebase.                                                      |
-| Easy integration            | Simple to integrate into existing web applications.                                             |
-| Privacy-focused             | Designed with a focus on user privacy and data protection.                                     |
+| Feature | Description |
+| --- | --- |
+| 100% Local Processing | No image data leaves the user's browser. |
+| Zero-Knowledge Architecture | All edits are performed client-side with no backend storage or telemetry. |
+| Open-Source Transparency | All code is open-source and transparent. |
 
 ## Tech Stack
-
-- Python
-- JavaScript
-- HTML/CSS
-- WebAssembly (for performance-critical operations)
+- Python 3.9
+- PyProject.toml
+- requirements.txt
 
 ## Project Structure
-
-```
-business/       # Business logic and core functionality
-src/            # Source code for the main application
-tests/          # Test cases and test suites
-README.md       # Project documentation
-pyproject.toml  # Project configuration
-requirements.txt # Project dependencies
+```markdown
+business/
+src/
+tests/
+README.md
+pyproject.toml
+requirements.txt
 ```
 
 ## Getting Started
-
-### Prerequisites
-
-- Python 3.8+
-- Node.js 14+
-
-### Installation
-
 ```bash
+# Clone the repository
 git clone https://github.com/axentx/privacy-pixel.git
-cd privacy-pixel
+
+# Install dependencies
 pip install -r requirements.txt
-npm install
-```
 
-### Running the Application
-
-```bash
+# Run the project
 python src/main.py
 ```
 
-### Running Tests
-
-```bash
-python -m pytest tests/
-```
-
 ## Deploy
-
 ```bash
-# Build the application
-npm run build
+# Build the project
+pyproject.toml build
 
-# Deploy to your preferred hosting service
-# Example for Vercel
-vercel deploy
+# Deploy to your preferred platform
+# (e.g. Vercel, Netlify, etc.)
 ```
 
 ## Status
-
-Latest commit: `5df0a04 axentx-dev-bot: code-build cycle 20260609-004609-privacy-`
+Last updated: 2023-06-09
+Recent commit: `b681981 axentx-dev-bot: code-build cycle 20260609-004737-privacy-`
 
 ## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
 
 ## License
-
-MIT
+This project is licensed under the MIT License.
