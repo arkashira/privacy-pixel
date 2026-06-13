@@ -1,49 +1,36 @@
-import dataclasses
-import json
-from typing import List
+from dataclasses import dataclass
+from enum import Enum
+from typing import Tuple
 
-@dataclasses.dataclass
-class Image:
-    data: bytes
-    width: int
-    height: int
+class RedactionEffect(Enum):
+    BLUR = 1
+    PIXELATE = 2
+
+@dataclass
+class RedactionBrush:
+    size: int
+    effect: RedactionEffect
 
 class ImageEditor:
-    def __init__(self, image: Image):
-        self.image = image
-        self.undo_stack = []
-        self.redo_stack = []
+    def __init__(self, image_data: bytes):
+        self.image_data = image_data
+        self.redacted_areas = []
 
-    def crop(self, x: int, y: int, width: int, height: int):
-        self.undo_stack.append(self.image)
-        self.image = Image(self.image.data, width, height)
-        self.redo_stack = []
+    def apply_redaction(self, x: int, y: int, brush: RedactionBrush):
+        if brush.size < 5 or brush.size > 100:
+            raise ValueError("Brush size must be between 5 and 100 pixels")
+        self.redacted_areas.append((x, y, brush))
 
-    def rotate(self, degrees: int):
-        self.undo_stack.append(self.image)
-        # Simulate rotation by changing width and height
-        if degrees == 90 or degrees == 270:
-            self.image = Image(self.image.data, self.image.height, self.image.width)
-        self.redo_stack = []
+    def toggle_redaction(self, index: int):
+        if index < 0 or index >= len(self.redacted_areas):
+            raise IndexError("Invalid redaction index")
+        self.redacted_areas[index] = (self.redacted_areas[index][0], self.redacted_areas[index][1], 
+                                      RedactionEffect.BLUR if self.redacted_areas[index][2].effect == RedactionEffect.PIXELATE 
+                                      else RedactionEffect.PIXELATE)
 
-    def flip(self, horizontal: bool):
-        self.undo_stack.append(self.image)
-        # Simulate flip by changing width or height
-        if horizontal:
-            self.image = Image(self.image.data, self.image.width, self.image.height)
-        else:
-            self.image = Image(self.image.data, self.image.width, self.image.height)
-        self.redo_stack = []
+    def get_redacted_image(self):
+        # Simulate image processing
+        return self.image_data
 
-    def undo(self):
-        if self.undo_stack:
-            self.redo_stack.append(self.image)
-            self.image = self.undo_stack.pop()
-
-    def redo(self):
-        if self.redo_stack:
-            self.undo_stack.append(self.image)
-            self.image = self.redo_stack.pop()
-
-    def get_image(self):
-        return self.image
+def create_image_editor(image_data: bytes) -> ImageEditor:
+    return ImageEditor(image_data)
